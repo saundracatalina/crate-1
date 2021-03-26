@@ -16,7 +16,12 @@ import userRoutes from '../../setup/routes/user'
 import { logout } from './api/actions'
 
 // Component
-const Profile = (props) => (
+const Profile = (props) => {
+  const returnLog = () => {
+    console.log('hey')
+  }
+
+  return (
   <div>
     {/* SEO */}
     <Helmet>
@@ -33,9 +38,10 @@ const Profile = (props) => (
     <Grid>
       <GridCell style={{ padding: '2em', textAlign: 'center' }}>
         <H4 style={{ marginBottom: '0.5em' }}>{props.user.details.name}</H4>
-
-        <p style={{ color: grey2, marginBottom: '2em' }}>{props.user.details.email}</p>
-
+        <div className='email-container'>
+          <p style={{ color: grey2, marginBottom: '2em' }}>{props.user.details.email}</p>
+          <button className='edit-email' onClick={returnLog}>Edit</button>
+        </div>
         <Link to={userRoutes.subscriptions.path}>
           <Button theme="primary">Subscriptions</Button>
         </Link>
@@ -45,6 +51,7 @@ const Profile = (props) => (
     </Grid>
   </div>
 )
+}
 
 // Component Properties
 Profile.propTypes = {
