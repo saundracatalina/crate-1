@@ -1,3 +1,7 @@
+// add separate migrations to add new user fields for
+// image, description, and address.
+// run migration to update the db
+
 module.exports = {
   up: (queryInterface, Sequelize) => {
     return queryInterface.createTable('users', {
