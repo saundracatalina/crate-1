@@ -15,6 +15,7 @@ export const LOGOUT = 'AUTH/LOGOUT'
 // Actions
 
 // Set a user after login or using localStorage token
+// This code block set's a specific user after they have log in using a specific token using a condtional stating that if the autohrization and token matches set the user else delete the page and go back to the login page
 export function setUser(token, user) {
   if (token) {
     axios.defaults.headers.common['Authorization'] = `Bearer ${token}`;
@@ -26,6 +27,7 @@ export function setUser(token, user) {
 }
 
 // Login a user using credentials
+// This code block is going to the data and saying that a user has requested an action it is then gonna go to that action from the switch case in state.js and return the object then update the object to a specific one else return an error message.
 export function login(userCredentials, isLoading = true) {
   return dispatch => {
     dispatch({
@@ -68,7 +70,7 @@ export function login(userCredentials, isLoading = true) {
 
 // Set user token and info in localStorage and cookie
 export function loginSetUserLocalStorageAndCookie(token, user) {
-  // Update token
+  // Update token & sets a user profile to stay on page refresh
   window.localStorage.setItem('token', token)
   window.localStorage.setItem('user', JSON.stringify(user))
 
@@ -87,7 +89,7 @@ export function register(userDetails) {
   }
 }
 
-// Log out user and remove token from localStorage
+// Log out user and remove token from localStorage, taking in the function of logoutUnsetUserLocalStorageAndCookie() and dispatching it to the action type.
 export function logout() {
   return dispatch => {
     logoutUnsetUserLocalStorageAndCookie()
@@ -103,7 +105,7 @@ export function logoutUnsetUserLocalStorageAndCookie() {
   // Remove token
   window.localStorage.removeItem('token')
   window.localStorage.removeItem('user')
-
+  // When a user logs out on page refresh we do not want it to show the user;s information so we need to go back into localstorgae and reset everything to the beginning.
   // Remove cookie
   cookie.remove('auth')
 }
