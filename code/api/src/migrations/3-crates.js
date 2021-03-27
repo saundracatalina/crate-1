@@ -1,3 +1,7 @@
+// add separate migration to add new field for
+// deliveryDate
+// run migration to update the db
+
 module.exports = {
   up: (queryInterface, Sequelize) => {
     return queryInterface.createTable('crates', {
