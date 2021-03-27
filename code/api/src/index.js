@@ -1,3 +1,5 @@
+//This looks like the main file that runs the entire app.  
+
 // Imports
 import express from 'express'
 

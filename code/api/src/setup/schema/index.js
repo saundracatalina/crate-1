@@ -1,3 +1,5 @@
+//This does some db setup stuff that we probably won't ever have to touch.
+
 // Imports
 import { GraphQLSchema } from 'graphql'
 

@@ -1,3 +1,4 @@
+//These migrations define up and down attributes.  Up indicates an application of the migration and down indicates a rollback.
 module.exports = {
   up: (queryInterface, Sequelize) => {
     return queryInterface.createTable('users', {

@@ -1,3 +1,5 @@
+//This looks like functionality for user uploaded images. 
+
 // Imports
 import path from 'path'
 import multer from 'multer'

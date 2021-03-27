@@ -1,3 +1,7 @@
+//This file seems to handle requests that modify or mutate data within the database.
+//It uses type classes which come from ./types.js.  These types are for graphql queries.
+//These functions correlate with actions in the frontend.
+
 // Imports
 import { GraphQLString, GraphQLInt } from 'graphql'
 

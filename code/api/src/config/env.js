@@ -1,3 +1,5 @@
+//Logic to load environment variables from the env.json file.
+
 // Imports
 import dotenv from 'dotenv'
 

@@ -1,3 +1,9 @@
+//These functions are called by the functions defined in the query and mutations files.
+
+//The "model logic" that directly manipulates the database is happening here.
+//The "controller logic" that handles requests and formats inputted data happens in the mutations and query files.
+//The "view logic" that formats outputted data is handled by GraphQL
+
 // App Imports
 import models from '../../setup/models'
 import params from '../../config/params'

@@ -1,3 +1,5 @@
+//General setup stuff that we shouldn't ever touch.
+
 // Imports
 import express from 'express'
 import path from 'path'

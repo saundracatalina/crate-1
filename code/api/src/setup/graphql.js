@@ -1,3 +1,5 @@
+//GraphQL setup stuff that we shouldn't ever touch.
+
 // Imports
 import graphqlHTTP from 'express-graphql'
 

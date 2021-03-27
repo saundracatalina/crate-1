@@ -1,3 +1,5 @@
+//Something GraphQL related.
+
 // Imports
 import { GraphQLObjectType, GraphQLString, GraphQLInt } from 'graphql'
 

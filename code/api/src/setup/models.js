@@ -1,3 +1,5 @@
+//This combines models defined in model.js files for each table.  
+
 // Imports
 import Sequelize from 'sequelize'
 

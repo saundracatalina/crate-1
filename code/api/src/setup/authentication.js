@@ -1,3 +1,5 @@
+//This serves as a wrapper for jwt logic used in token based authentication used by this app.
+
 // Imports
 import jwt from 'jsonwebtoken'
 import serverConfig from '../config/server.json'

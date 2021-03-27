@@ -1,5 +1,5 @@
 'use strict';
-
+//These files provide seed data for each table in the database.
 const bcrypt = require('bcrypt');
 const config = require('../config/server.json');
 const params = require('../config/params.json');

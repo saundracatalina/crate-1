@@ -1,3 +1,6 @@
+//This file combines the queries for all of the tables above.  
+//This creates a giant list of switch statements that incoming requests are checked against for handling.
+
 // Imports
 import { GraphQLObjectType } from 'graphql'
 

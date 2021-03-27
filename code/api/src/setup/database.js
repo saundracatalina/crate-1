@@ -1,3 +1,5 @@
+//This is db setup logic that we shouldn't touch.
+
 // Imports
 import { Sequelize } from 'sequelize'
 
