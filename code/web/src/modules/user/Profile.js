@@ -48,6 +48,7 @@ const Profile = (props) => (
         <Button theme="secondary" onClick={props.logout} style={{ marginLeft: '1em' }}>Logout</Button>
         {/* This button upon click logs the user out */}
       </GridCell>
+      {/* Possible add another gridcell here for a profile picture section,  email & shipping address section, current delivery, past crate products and products kept*/}
     </Grid>
   </div>
 )
