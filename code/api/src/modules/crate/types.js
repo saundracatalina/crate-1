@@ -1,3 +1,5 @@
+// Add deliveryDate to fields for graphQL queries 
+
 // Imports
 import { GraphQLObjectType, GraphQLString, GraphQLInt } from 'graphql'
 
