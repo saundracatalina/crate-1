@@ -17,10 +17,6 @@ import { logout } from './api/actions'
 
 // Component
 const Profile = (props) => {
-  const returnLog = () => {
-    console.log('hey')
-  }
-
   return (
   <div>
     {/* SEO */}
@@ -34,19 +30,20 @@ const Profile = (props) => {
         <H3 font="secondary">My profile</H3>
       </GridCell>
     </Grid>
+    <Grid style={{justifyContent: 'center'}}>
 
+      <Link to={userRoutes.subscriptions.path}>
+        <Button theme="primary">Subscriptions</Button>
+      </Link>
+
+      <Button theme="secondary" onClick={props.logout} style={{ marginLeft: '1em' }}>Logout</Button>
+    </Grid>
     <Grid>
       <GridCell style={{ padding: '2em', textAlign: 'center' }}>
         <H4 style={{ marginBottom: '0.5em' }}>{props.user.details.name}</H4>
         <div className='email-container'>
           <p style={{ color: grey2, marginBottom: '2em' }}>{props.user.details.email}</p>
-          <button className='edit-email' onClick={returnLog}>Edit</button>
         </div>
-        <Link to={userRoutes.subscriptions.path}>
-          <Button theme="primary">Subscriptions</Button>
-        </Link>
-
-        <Button theme="secondary" onClick={props.logout} style={{ marginLeft: '1em' }}>Logout</Button>
       </GridCell>
     </Grid>
   </div>
