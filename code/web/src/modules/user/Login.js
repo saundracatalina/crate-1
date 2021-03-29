@@ -38,6 +38,8 @@ class Login extends Component {
     // Function bindings
   }
 
+// This method is for whenever someone types into the form on the login page. It's invokded in both
+// the username input and password input which controls the local state of this component.
   onChange = (event) => {
     let user = this.state.user
     user[event.target.name] = event.target.value
@@ -47,13 +49,19 @@ class Login extends Component {
     })
   }
 
+// This method is what handles the event of someone submitting the form. This invoked whenever a user
+// clicks enter or the 'Login' button.
   onSubmit = (event) => {
     event.preventDefault()
 
     this.props.messageShow('Logging in, please wait...')
 
+// This login method here is one of our actions from in ./api/actions.js. This action is where
+// our axios fetch request lives to grab a specific users data from the api based on the login credentials
+// which then updates our user property of our applications state.
     this.props.login(this.state.user)
       .then(response => {
+// A conditional checking for an error message
         if (this.props.user.error && this.props.user.error.length > 0) {
           this.props.messageShow(this.props.user.error)
 
@@ -77,6 +85,7 @@ class Login extends Component {
     const { isLoading, error } = this.props.user
 
     return (
+// Lines 85 - 113 are UI components which strictly deal with styling and responsiveness for the site.
       <Grid gutter={true} alignCenter={true} style={{ padding: '2em' }}>
         {/* SEO */}
         <Helmet>
@@ -175,4 +184,6 @@ function loginState(state) {
   }
 }
 
+// This is the method that connects our component to the store. The second object argument
+// that contains { login, messageShow, messageHide } are all the actions that are dispacthed
 export default connect(loginState, { login, messageShow, messageHide })(withRouter(Login))
