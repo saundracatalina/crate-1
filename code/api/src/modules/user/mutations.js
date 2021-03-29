@@ -1,3 +1,9 @@
+// This file will help us define mutations to update User's
+// profile information. I believe we can write mutations that
+// also have queries built into them so that when a user
+// updates information on their profile in the same action
+// it will show that newly updated info with a query all at once.
+
 // Imports
 import { GraphQLString, GraphQLInt } from 'graphql'
 
