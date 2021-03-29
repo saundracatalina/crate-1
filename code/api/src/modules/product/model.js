@@ -1,3 +1,6 @@
+// Add Product.associate to add relationship to crateProduct
+// table. Product hasMany crateProduct
+
 'use strict'
 
 // Product
