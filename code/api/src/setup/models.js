@@ -1,3 +1,6 @@
+// Will need to add to the 'const models' section to
+// include new tables 
+
 // Imports
 import Sequelize from 'sequelize'
 
