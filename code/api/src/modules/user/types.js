@@ -1,3 +1,7 @@
+// In the 'fields' section we will add the 3 new columns
+// (description, image, shippingAddress) so that we can access
+// the information with graphQL queries 
+
 // Imports
 import { GraphQLObjectType, GraphQLString, GraphQLInt } from 'graphql'
 
