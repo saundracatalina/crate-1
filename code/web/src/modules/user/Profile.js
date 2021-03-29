@@ -39,10 +39,12 @@ const Profile = (props) => {
       <Button theme="secondary" onClick={props.logout} style={{ marginLeft: '1em' }}>Logout</Button>
     </Grid>
     <Grid>
-      <GridCell style={{ padding: '2em', textAlign: 'center' }}>
+      <GridCell style={{ padding: '2em'}}>
         <H4 style={{ marginBottom: '0.5em' }}>{props.user.details.name}</H4>
-        <div className='email-container'>
+        <div className='info-container'>
+          <p style={{ color: grey2, marginBottom: '2em' }}>{props.user.details.description} This is where the description will be</p>
           <p style={{ color: grey2, marginBottom: '2em' }}>{props.user.details.email}</p>
+          <p style={{ color: grey2, marginBottom: '2em' }}>{props.user.details.shippingAddress} The shipping address will be here</p>
         </div>
       </GridCell>
     </Grid>
