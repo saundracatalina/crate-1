@@ -2,7 +2,11 @@
 // for those tables. We plan on creating new migration files for additions to those tables.
 
 // We will also be adding 2 completely new tables and will create and run
-// migrations for those respectively. The summary of those additions will be:
+// migrations for those respectively. Their will be migration detals for
+// the 'up' and 'down' of each migration for any rollbacks needed. Since these migrations
+// will be for new tables the 'down' will be to detail dropTable function.
+
+// The details of the table additions will be:
 
 // crateProducts (table)
 // fields on that table:
