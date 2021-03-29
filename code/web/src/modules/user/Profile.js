@@ -50,6 +50,10 @@ const Profile = (props) => {
           <p style={{ color: grey2, marginBottom: '2em' }}>{props.user.details.shippingAddress} The shipping address will be here</p>
         </div>
       </GridCell>
+      <GridCell style={{ padding: '2em'}}>
+        <H4 style={{ marginBottom: '0.5em' }}>Items Kept</H4>
+      </GridCell>
+
     </Grid>
   </div>
 )
