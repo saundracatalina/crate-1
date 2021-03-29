@@ -40,6 +40,9 @@ const Profile = (props) => {
     </Grid>
     <Grid>
       <GridCell style={{ padding: '2em'}}>
+        <div className='profile-pic-container' style={{border: 'solid 1px black', height: '10em', width: '10em', marginBottom: '3em'}}>
+          <img className='profile-pic' src='' alt='Your profile picture'/>
+        </div>
         <H4 style={{ marginBottom: '0.5em' }}>{props.user.details.name}</H4>
         <div className='info-container'>
           <p style={{ color: grey2, marginBottom: '2em' }}>{props.user.details.description} This is where the description will be</p>
