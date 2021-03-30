@@ -40,11 +40,12 @@ const Profile = (props) => {
       <Button theme="secondary" onClick={props.logout} style={{ marginLeft: '1em' }}>Logout</Button>
     </Grid>
     <Grid>
-      <GridCell style={{ padding: '2em'}}>
+      <GridCell style={{ padding: '2em', display: 'flex', flexDirection: 'column'}}>
         <div className='profile-pic-container' style={{border: 'solid 1px black', height: '10em', width: '10em', marginBottom: '3em'}}>
           <img className='edit-image' src={`${ APP_URL }/images/edit.png`}/>
           <img className='profile-pic' src='' alt='Your profile picture'/>
         </div>
+        <img className='edit-image' src={`${ APP_URL }/images/edit.png`} style={{width: '1.5em', alignSelf: 'flex-end'}}/>
         <H4 style={{ marginBottom: '0.5em' }}>{props.user.details.name}</H4>
         <div className='info-container'>
           <p style={{ color: grey2, marginBottom: '2em' }}>{props.user.details.description} This is where the description will be</p>
