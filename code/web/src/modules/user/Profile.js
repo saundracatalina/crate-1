@@ -59,6 +59,8 @@ const Profile = (props) => {
       <GridCell style={{ padding: '2em'}}>
         <div className='next-delivery-container' style={{border: 'solid 1px black', height: '10em', width: '15em', marginBottom: '1.5em'}}>
           <p className='next-delivery' style={{ marginBottom: '2em' }}>Next Delivery</p>
+          <label for='delivery-date'>Change Delivery Date</label>
+          <input className='delivery-date' type='date'></input>
         </div>
         <div className='products-received-container' style={{border: 'solid 1px black', height: '20em', width: '15em', marginBottom: '3em'}}>
           <p className='products-received' style={{ marginBottom: '2em' }}>Product History</p>
