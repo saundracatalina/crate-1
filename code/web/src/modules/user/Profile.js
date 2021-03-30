@@ -1,5 +1,5 @@
 // Imports
-import React from 'react'
+import React, { useState } from 'react'
 import PropTypes from 'prop-types'
 import { connect } from 'react-redux'
 import { Helmet } from 'react-helmet'
@@ -15,15 +15,23 @@ import { grey, grey2 } from '../../ui/common/colors'
 import { APP_URL } from '../../setup/config/env'
 import userRoutes from '../../setup/routes/user'
 import { logout } from './api/actions'
+import EditInfo from './EditInfo'
 
 // Component
 const Profile = (props) => {
+  const [editForm, setEditForm] = useState(false);
+
+  const showEditInfoForm = (event) => {
+    setEditForm(true);
+  }
+
   return (
   <div>
     {/* SEO */}
     <Helmet>
       <title>My Profile - Crate</title>
     </Helmet>
+    <EditInfo show={editForm} />
 
     {/* Top title bar */}
     <Grid style={{ backgroundColor: grey }}>
@@ -45,7 +53,7 @@ const Profile = (props) => {
           <img className='edit-image' src={`${ APP_URL }/images/edit.png`} style={{width: '1.5em', alignSelf: 'flex-end'}}/>
           <img className='profile-pic' src='' alt='Your profile picture'/>
         </div>
-        <img className='edit-image' src={`${ APP_URL }/images/edit.png`} style={{width: '1.5em', alignSelf: 'flex-end'}}/>
+        <img className='edit-image' src={`${ APP_URL }/images/edit.png`} style={{width: '1.5em', alignSelf: 'flex-end'}} onClick={event => showEditInfoForm(event)}/>
         <H4 style={{ marginBottom: '0.5em' }}>{props.user.details.name}</H4>
         <div className='info-container'>
           <p style={{ color: grey2, marginBottom: '2em' }}>{props.user.details.description} This is where the description will be</p>
