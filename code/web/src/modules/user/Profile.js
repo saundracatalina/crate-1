@@ -41,8 +41,8 @@ const Profile = (props) => {
     </Grid>
     <Grid>
       <GridCell style={{ padding: '2em', display: 'flex', flexDirection: 'column'}}>
-        <div className='profile-pic-container' style={{border: 'solid 1px black', height: '10em', width: '10em', marginBottom: '3em'}}>
-          <img className='edit-image' src={`${ APP_URL }/images/edit.png`}/>
+        <div className='profile-pic-container' style={{display: 'flex', flexDirection: 'column', border: 'solid 1px black', height: '10em', width: '10em', marginBottom: '3em'}}>
+          <img className='edit-image' src={`${ APP_URL }/images/edit.png`} style={{width: '1.5em', alignSelf: 'flex-end'}}/>
           <img className='profile-pic' src='' alt='Your profile picture'/>
         </div>
         <img className='edit-image' src={`${ APP_URL }/images/edit.png`} style={{width: '1.5em', alignSelf: 'flex-end'}}/>
