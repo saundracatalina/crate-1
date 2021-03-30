@@ -12,6 +12,7 @@ import Button from '../../ui/button'
 import { grey, grey2 } from '../../ui/common/colors'
 
 // App Imports
+import { APP_URL } from '../../setup/config/env'
 import userRoutes from '../../setup/routes/user'
 import { logout } from './api/actions'
 
@@ -41,6 +42,7 @@ const Profile = (props) => {
     <Grid>
       <GridCell style={{ padding: '2em'}}>
         <div className='profile-pic-container' style={{border: 'solid 1px black', height: '10em', width: '10em', marginBottom: '3em'}}>
+          <img className='edit-image' src={`${ APP_URL }/images/edit.png`}/>
           <img className='profile-pic' src='' alt='Your profile picture'/>
         </div>
         <H4 style={{ marginBottom: '0.5em' }}>{props.user.details.name}</H4>
