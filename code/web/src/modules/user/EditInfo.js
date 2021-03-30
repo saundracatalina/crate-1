@@ -2,12 +2,10 @@ import React, { Component } from 'react'
 import PropTypes from 'prop-types'
 import { connect } from 'react-redux'
 
-const EditInfo = ({show}) => {
-  debugger;
-  const showEditModal = show ? 'display-absolute' : 'display-none';
+const EditInfo = () => {
 
   return (
-    <section style={{display: showEditModal}}>
+    <section>
       <button>Here</button>
     </section>
   )
