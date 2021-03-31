@@ -10,6 +10,7 @@ const CrateType = new GraphQLObjectType({
     id: { type: GraphQLInt },
     name: { type: GraphQLString },
     description: { type: GraphQLString },
+    deliveryDate: { type: GraphQLString },
     createdAt: { type: GraphQLString },
     updatedAt: { type: GraphQLString }
   })
