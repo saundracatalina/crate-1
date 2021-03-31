@@ -53,11 +53,8 @@ const Profile = (props) => {
     </Grid>
     <Grid>
       <GridCell style={{ padding: '2em', display: 'flex', flexDirection: 'column'}}>
-        <div className='profile-pic-container' style={{display: 'flex', flexDirection: 'column', border: 'solid 1px black', height: '10em', width: '10em', marginBottom: '3em'}}>
-          <img className='edit-image' src={`${ APP_URL }/images/edit.png`} style={{width: '1.5em', alignSelf: 'flex-end'}}/>
-          <img className='profile-pic' src='' alt='Your profile picture'/>
-        </div>
         <img className='edit-image' src={`${ APP_URL }/images/edit.png`} style={{width: '1.5em', alignSelf: 'flex-end'}} onClick={event => toggleEditInfoForm(event)}/>
+        <img className='profile-pic' style={{width: '10em', height: '10em'}} src='' alt='Your profile picture'/>
         <H4 style={{ marginBottom: '0.5em' }}>{props.user.details.name}</H4>
         <div className='info-container'>
           <p style={{ color: grey2, marginBottom: '2em' }}>{props.user.details.description} This is where the description will be</p>
@@ -71,7 +68,7 @@ const Profile = (props) => {
       <GridCell style={{ padding: '2em'}}>
         <div className='next-delivery-container' style={{border: 'solid 1px black', height: '10em', width: '15em', marginBottom: '1.5em'}}>
           <p className='next-delivery' style={{ marginBottom: '2em' }}>Next Delivery</p>
-          <label for='delivery-date'>Change Delivery Date</label>
+          <label htmlFor='delivery-date'>Change Delivery Date</label>
           <input className='delivery-date' type='date'></input>
         </div>
         <div className='products-received-container' style={{border: 'solid 1px black', height: '20em', width: '15em', marginBottom: '3em'}}>
