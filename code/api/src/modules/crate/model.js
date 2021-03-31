@@ -7,11 +7,15 @@ module.exports = function(sequelize, DataTypes) {
     },
     description: {
       type: DataTypes.TEXT
+    },
+    deliveryDate: {
+      type: DataTypes.TEXT
     }
   })
 
   Crate.associate = function(models) {
     Crate.hasMany(models.Subscription)
+    Crate.hasMany(models.CrateProduct)
   }
 
   return Crate
