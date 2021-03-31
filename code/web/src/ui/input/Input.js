@@ -10,7 +10,7 @@ const Input = (props) => {
   const { type, fullWidth, ...other } = props
 
   return (
-    <div>
+    <div style={{width: '80%'}}>
       <input type={type} {...other} />
 
       {/* language=CSS */}

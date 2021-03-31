@@ -35,7 +35,7 @@ const Profile = (props) => {
     <Helmet>
       <title>My Profile - Crate</title>
     </Helmet>
-    {editForm && <EditInfo/>}
+    {editForm && < EditInfo toggleEditInfoForm={toggleEditInfoForm}/>}
 
     {/* Top title bar */}
     <Grid style={{ backgroundColor: grey }}>
