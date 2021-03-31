@@ -20,6 +20,8 @@ export default (state = userInitialState, action) => {
         details: action.user,
       }
 
+// We'll want to create a new case for an action here that will change the users details (shiping address, email address, etc.)
+
     case LOGIN_REQUEST:
       return {
         ...state,
