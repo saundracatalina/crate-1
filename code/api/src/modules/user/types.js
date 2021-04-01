@@ -1,5 +1,7 @@
 // Imports
-import { GraphQLObjectType, GraphQLString, GraphQLInt } from 'graphql'
+import { GraphQLObjectType, GraphQLString, GraphQLInt, GraphQLList } from 'graphql'
+import { DeliveryType } from '../delivery/types';
+import { getByUser } from '../delivery/resolvers';
 
 // User type
 const UserType = new GraphQLObjectType({
@@ -14,7 +16,12 @@ const UserType = new GraphQLObjectType({
     role: { type: GraphQLString },
     description: { type: GraphQLString },
     image: { type: GraphQLString },
-    shippinAddress: { type: GraphQLString },
+    shippingAddress: { type: GraphQLString },
+    deliveries: {
+      type: new GraphQLList(DeliveryType),
+      resolve: getByUser
+    },
+
     createdAt: { type: GraphQLString },
     updatedAt: { type: GraphQLString }
   })

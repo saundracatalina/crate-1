@@ -27,6 +27,26 @@ export async function create(parentValue, { name, email, password }) {
   }
 }
 
+export async function update(parentValue, { id, name, email, description, shippingAddress }) {
+  // Users exists with same email check
+  const user = await models.User.findOne({ where: { id } })
+
+  if (user) {
+    // User does not exists
+    const passwordHashed = await bcrypt.hash(password, serverConfig.saltRounds)
+
+    return await user.update({
+      email,
+      name,
+      description,
+      shippingAddress
+    })
+  } else {
+    // User does not exist
+    throw new Error(`Attempted update on nonexisting user.`)
+  }
+}
+
 export async function login(parentValue, { email, password }) {
   const user = await models.User.findOne({ where: { email } })
 

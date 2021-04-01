@@ -16,8 +16,16 @@ module.exports = {
         updatedAt: new Date()
       },
       {
-        name: 'The User',
-        email: 'user@crate.com',
+        name: 'User with kept deliveries',
+        email: 'user1@crate.com',
+        password: bcrypt.hashSync('123456', config.saltRounds),
+        role: params.user.roles.user,
+        createdAt: new Date(),
+        updatedAt: new Date()
+      },
+      {
+        name: 'User with returned deliveries',
+        email: 'user2@crate.com',
         password: bcrypt.hashSync('123456', config.saltRounds),
         role: params.user.roles.user,
         createdAt: new Date(),
