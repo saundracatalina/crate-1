@@ -1,6 +1,6 @@
 // App Imports
 import { isEmpty } from '../../../setup/helpers'
-import { SET_USER, LOGIN_REQUEST, LOGIN_RESPONSE, LOGOUT,  EDIT_INFO_REQUEST, EDIT_INFO_RESPONSE } from './actions'
+import { SET_USER, LOGIN_REQUEST, LOGIN_RESPONSE, LOGOUT, EDIT_INFO_REQUEST, EDIT_INFO_RESPONSE } from './actions'
 
 // Initial State
 export const userInitialState = {
@@ -57,7 +57,7 @@ export default (state = userInitialState, action) => {
         ...state,
         error: action.error,
         isLoading: false,
-        details: action.updatedUserInfo
+        details: action.user
       }
 
     default:

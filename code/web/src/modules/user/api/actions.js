@@ -11,6 +11,8 @@ export const LOGIN_REQUEST = 'AUTH/LOGIN_REQUEST'
 export const LOGIN_RESPONSE = 'AUTH/LOGIN_RESPONSE'
 export const SET_USER = 'AUTH/SET_USER'
 export const LOGOUT = 'AUTH/LOGOUT'
+export const EDIT_INFO_REQUEST = 'AUTH/EDIT_INFO_REQUEST'
+export const EDIT_INFO_RESPONSE = 'AUTH/EDIT_INFO_RESPONSE'
 
 // Actions
 
@@ -123,6 +125,26 @@ export function logoutUnsetUserLocalStorageAndCookie() {
 
   // Remove cookie
   cookie.remove('auth')
+}
+
+//Update user info
+export function editInfoResponse(isLoading = true) {
+  return dispatch => {
+    dispatch({
+      type: EDIT_INFO_REQUEST,
+      isLoading
+    })
+    // return axios.post(routeApi, mutation({
+    //   operation: " ",
+    //   variable: user,
+    //   fields: ['user {email, descritption, shippingAddress, image}']
+    // }))
+      // .then(response => {
+      //   let error = ''
+
+
+      // })
+  }
 }
 
 // Get user gender
