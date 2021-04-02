@@ -4,7 +4,7 @@ import { connect } from 'react-redux'
 import Input from '../../ui/input/Input'
 import { editInfoResponse } from './api/actions'
 
-const EditInfo = ({toggleEditInfoForm, userInfo}) => {
+const EditInfo = ({toggleEditInfoForm, userInfo, editInfoResponse}) => {
 
   const handleOnClick = (e) => {
     e.preventDefault()
