@@ -128,12 +128,12 @@ export function logoutUnsetUserLocalStorageAndCookie() {
 }
 
 //Update user info
-export function editInfoResponse(isLoading = true) {
+export function editInfoResponse(updatedInfo, isLoading = true) {
   return dispatch => {
-    dispatch({
-      type: EDIT_INFO_REQUEST,
-      isLoading
-    })
+    // dispatch({
+    //   type: EDIT_INFO_REQUEST,
+    //   isLoading
+    // })
     // return axios.post(routeApi, mutation({
     //   operation: " ",
     //   variable: user,
@@ -144,6 +144,10 @@ export function editInfoResponse(isLoading = true) {
 
 
       // })
+    dispatch({
+      type: EDIT_INFO_RESPONSE,
+      user: updatedInfo,
+    })
   }
 }
 

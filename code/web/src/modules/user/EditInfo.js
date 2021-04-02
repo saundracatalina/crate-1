@@ -9,10 +9,12 @@ class EditInfo extends Component {
     super(props)
     this.state = {
       user: {
+        name: props.user.details.name,
         image: props.user.details.image,
         email: props.user.details.email,
         shippingAddress: props.user.details.shippingAddress,
         description: props.user.details.description,
+        role: props.user.details.role
       }
     }
   }
@@ -29,7 +31,7 @@ class EditInfo extends Component {
   handleOnClick = (e) => {
     e.preventDefault()
     this.props.toggleEditInfoForm();
-    this.props.editInfoResponse();
+    this.props.editInfoResponse(this.state.user);
   }
 
   render() {
