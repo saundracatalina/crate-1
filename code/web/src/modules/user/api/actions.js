@@ -42,9 +42,10 @@ export function login(userCredentials, isLoading = true) {
     return axios.post(routeApi, query({
       operation: 'userLogin',
       variables: userCredentials,
-      fields: ['user {name, email, role}', 'token']
+      fields: ['user {name, email, role, image, description, shippingAddress}', 'token']
     }))
       .then(response => {
+        console.log(response);
         let error = ''
 // This if statement will trigger if there is an error with logging in the user. This error is returned t
 // to us from the database if this request fails.

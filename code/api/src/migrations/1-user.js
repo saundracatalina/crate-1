@@ -13,14 +13,14 @@ module.exports = {
       email: {
         type: Sequelize.TEXT
       },
-      profilePicture: {
-        type: Sequelize.TEXT
-      },
       description: {
         type: Sequelize.TEXT
       },
       shippingAddress: {
-        type: Sequlaize.TEXT
+        type: Sequelize.TEXT
+      },
+      image: {
+        type: Sequelize.TEXT
       },
       password: {
         type: Sequelize.TEXT
