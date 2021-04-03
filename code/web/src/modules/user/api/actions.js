@@ -11,6 +11,8 @@ export const LOGIN_REQUEST = 'AUTH/LOGIN_REQUEST'
 export const LOGIN_RESPONSE = 'AUTH/LOGIN_RESPONSE'
 export const SET_USER = 'AUTH/SET_USER'
 export const LOGOUT = 'AUTH/LOGOUT'
+export const EDIT_INFO_REQUEST = 'AUTH/EDIT_INFO_REQUEST'
+export const EDIT_INFO_RESPONSE = 'AUTH/EDIT_INFO_RESPONSE'
 
 // Actions
 
@@ -36,44 +38,27 @@ export function login(userCredentials, isLoading = true) {
       type: LOGIN_REQUEST,
       isLoading
     })
-// This is the fetch request to our database to return the specific user's data that is logging in.
     return axios.post(routeApi, query({
       operation: 'userLogin',
       variables: userCredentials,
-      fields: ['user {name, email, role}', 'token']
+      fields: ['user {id, name, email, role, image, description, shippingAddress,}', 'token']
     }))
       .then(response => {
         let error = ''
-// This if statement will trigger if there is an error with logging in the user. This error is returned t
-// to us from the database if this request fails.
         if (response.data.errors && response.data.errors.length > 0) {
           error = response.data.errors[0].message
-// This else if statement will trigger if the database has successfully responded to our user's login
-// request. The authnetication token from the database value is assigned to the variable token, and then
-// user's information from the database is assigned to the variable user.
         } else if (response.data.data.userLogin.token !== '') {
           const token = response.data.data.userLogin.token
           const user = response.data.data.userLogin.user
-// The 'setUser' method, which contains the action 'SET_USER', is then dispatched to our user reducer
-// which updates our user state's properties 'isAuthenticated' and 'details'. The 'isAuthenticated'
-// property is updated to true, and the 'details' property is updated with the specific user's information:
-// (email, passowrd, name, etc.)
           dispatch(setUser(token, user))
 
           loginSetUserLocalStorageAndCookie(token, user)
         }
-// This method then dispatch's the action 'LOGIN_RESPONSE' to our user reducer which, since the network request
-// was succesful at this point, will update our user state's properties 'isLoading' and 'error'. The 'isLoading'
-// property is updated to false since there is no more information to update at this point, and the 'error'
-// property is updated to an empty string (line 45), unless the user does not exist, then an error message is
-// returned from the api which is set to the 'error' property.
         dispatch({
           type: LOGIN_RESPONSE,
           error
         })
       })
-// This catch method is triggered when the network request above fails to respond. It dispatch's the action 'LOGIN_RESPONSE'
-// which then updates the user state's property 'error' to the string 'Please try again'.
       .catch(error => {
         dispatch({
           type: LOGIN_RESPONSE,
@@ -123,6 +108,35 @@ export function logoutUnsetUserLocalStorageAndCookie() {
 
   // Remove cookie
   cookie.remove('auth')
+}
+
+//Update user info
+export function editInfoResponse(updatedInfo, isLoading = true) {
+  return dispatch => {
+    dispatch({
+      type: EDIT_INFO_REQUEST,
+      isLoading
+    })
+    return axios.post(routeApi, mutation({
+      operation: "userUpdate",
+      variables: updatedInfo,
+      fields: ['id', 'email', 'description', 'shippingAddress', 'image']
+    }))
+      .then(response => { 
+        const getParseUser = JSON.parse(localStorage.getItem('user'))
+        getParseUser.email = updatedInfo.email
+        getParseUser.description = updatedInfo.description
+        getParseUser.shippingAddress = updatedInfo.shippingAddress
+        getParseUser.image = updatedInfo.image
+
+        localStorage.setItem('user', JSON.stringify(getParseUser))
+
+        dispatch({
+          type: EDIT_INFO_RESPONSE,
+          user: response.data.data.userUpdate
+        })
+      })
+  }
 }
 
 // Get user gender
