@@ -123,6 +123,14 @@ export function editInfoResponse(updatedInfo, isLoading = true) {
       fields: ['id', 'email', 'description', 'shippingAddress', 'image']
     }))
       .then(response => { 
+        const getParseUser = JSON.parse(localStorage.getItem('user'))
+        getParseUser.email = updatedInfo.email
+        getParseUser.description = updatedInfo.description
+        getParseUser.shippingAddress = updatedInfo.shippingAddress
+        getParseUser.image = updatedInfo.image
+
+        localStorage.setItem('user', JSON.stringify(getParseUser))
+
         dispatch({
           type: EDIT_INFO_RESPONSE,
           user: response.data.data.userUpdate
