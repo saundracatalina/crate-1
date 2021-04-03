@@ -42,7 +42,7 @@ export function login(userCredentials, isLoading = true) {
     return axios.post(routeApi, query({
       operation: 'userLogin',
       variables: userCredentials,
-      fields: ['user {name, email, role, image, description, shippingAddress}', 'token']
+      fields: ['user {id, name, email, role, image, description, shippingAddress}', 'token']
     }))
       .then(response => {
         console.log(response);
@@ -131,24 +131,23 @@ export function logoutUnsetUserLocalStorageAndCookie() {
 //Update user info
 export function editInfoResponse(updatedInfo, isLoading = true) {
   return dispatch => {
-    // dispatch({
-    //   type: EDIT_INFO_REQUEST,
-    //   isLoading
-    // })
-    // return axios.post(routeApi, mutation({
-    //   operation: " ",
-    //   variable: user,
-    //   fields: ['user {email, descritption, shippingAddress, image}']
-    // }))
-      // .then(response => {
-      //   let error = ''
-
-
-      // })
     dispatch({
-      type: EDIT_INFO_RESPONSE,
-      user: updatedInfo,
+      type: EDIT_INFO_REQUEST,
+      isLoading
     })
+    return axios.post(routeApi, mutation({
+      operation: "userUpdate",
+      variables: updatedInfo,
+      fields: ['id', 'email', 'description', 'shippingAddress', 'image']
+    }))
+      .then(response => {
+        console.log(response)
+        let error = ''
+      })
+    // dispatch({
+    //   type: EDIT_INFO_RESPONSE,
+    //   user: updatedInfo,
+    // })
   }
 }
 

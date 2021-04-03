@@ -38,12 +38,12 @@ export const userUpdate = {
 
     image: {
       name: "image",
-      type: GraphQLInt
+      type: GraphQLString
     },
 
     email: {
       name: "email",
-      type: GraphQLInt
+      type: GraphQLString
     },
 
     description: {
