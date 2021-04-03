@@ -35,7 +35,7 @@ const Profile = (props) => {
     <Helmet>
       <title>My Profile - Crate</title>
     </Helmet>
-    {editForm && < EditInfo toggleEditInfoForm={toggleEditInfoForm} userInfo={props.user.details}/>}
+    {editForm && < EditInfo toggleEditInfoForm={toggleEditInfoForm} />}
 
     {/* Top title bar */}
     <Grid style={{ backgroundColor: grey }}>
@@ -57,8 +57,11 @@ const Profile = (props) => {
         <img className='profile-pic' style={{width: '10em', height: '10em'}} src='' alt='Your profile picture'/>
         <H4 style={{ marginBottom: '0.5em' }}>{props.user.details.name}</H4>
         <div className='info-container'>
+          <p>Description</p>
           <p style={{ color: grey2, marginBottom: '2em' }}>{props.user.details.description} This is where the description will be</p>
+          <p>Email</p>
           <p style={{ color: grey2, marginBottom: '2em' }}>{props.user.details.email}</p>
+          <p>Shipping Address</p>
           <p style={{ color: grey2, marginBottom: '2em' }}>{props.user.details.shippingAddress} The shipping address will be here</p>
         </div>
       </GridCell>

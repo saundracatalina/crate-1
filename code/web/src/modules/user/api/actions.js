@@ -42,9 +42,10 @@ export function login(userCredentials, isLoading = true) {
     return axios.post(routeApi, query({
       operation: 'userLogin',
       variables: userCredentials,
-      fields: ['user {name, email, role}', 'token']
+      fields: ['user {name, email, role, image, description, shippingAddress}', 'token']
     }))
       .then(response => {
+        console.log(response);
         let error = ''
 // This if statement will trigger if there is an error with logging in the user. This error is returned t
 // to us from the database if this request fails.
@@ -128,12 +129,12 @@ export function logoutUnsetUserLocalStorageAndCookie() {
 }
 
 //Update user info
-export function editInfoResponse(isLoading = true) {
+export function editInfoResponse(updatedInfo, isLoading = true) {
   return dispatch => {
-    dispatch({
-      type: EDIT_INFO_REQUEST,
-      isLoading
-    })
+    // dispatch({
+    //   type: EDIT_INFO_REQUEST,
+    //   isLoading
+    // })
     // return axios.post(routeApi, mutation({
     //   operation: " ",
     //   variable: user,
@@ -144,6 +145,10 @@ export function editInfoResponse(isLoading = true) {
 
 
       // })
+    dispatch({
+      type: EDIT_INFO_RESPONSE,
+      user: updatedInfo,
+    })
   }
 }
 
