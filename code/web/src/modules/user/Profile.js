@@ -58,11 +58,11 @@ const Profile = (props) => {
         <H4 style={{ marginBottom: '0.5em' }}>{props.user.details.name}</H4>
         <div className='info-container'>
           <p>Description</p>
-          <p style={{ color: grey2, marginBottom: '2em' }}>{props.user.details.description} This is where the description will be</p>
+          <p style={{ color: grey2, marginBottom: '2em' }}>{props.user.details.description}</p>
           <p>Email</p>
           <p style={{ color: grey2, marginBottom: '2em' }}>{props.user.details.email}</p>
           <p>Shipping Address</p>
-          <p style={{ color: grey2, marginBottom: '2em' }}>{props.user.details.shippingAddress} The shipping address will be here</p>
+          <p style={{ color: grey2, marginBottom: '2em' }}>{props.user.details.shippingAddress}</p>
         </div>
       </GridCell>
       <GridCell style={{ padding: '2em', border: 'solid 1px black', marginTop: '2em', marginBottom: '1.5em'}}>
