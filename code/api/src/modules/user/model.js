@@ -27,8 +27,8 @@ module.exports = function(sequelize, DataTypes) {
   })
 
   User.associate = function(models) {
-    User.hasMany(models.Subscription)
     User.hasMany(models.Delivery)
+    User.hasMany(models.Subscription)
   }
 
   return User
