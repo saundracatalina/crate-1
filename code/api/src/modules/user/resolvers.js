@@ -37,7 +37,7 @@ export async function update(parentValue, { id, name, email, description, shippi
 
     return await user.update({
       email,
-      name,
+      image,
       description,
       shippingAddress
     })

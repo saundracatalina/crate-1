@@ -36,8 +36,8 @@ export const userUpdate = {
       type: GraphQLInt
     },
 
-    name: {
-      name: "name",
+    image: {
+      name: "image",
       type: GraphQLInt
     },
 
