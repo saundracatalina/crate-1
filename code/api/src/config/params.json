@@ -1,4 +1,11 @@
 {
+  "delivery": {
+    "statuses": [
+      "pending",
+      "kept",
+      "returned"
+    ]
+  },
   "product": {
     "types": {
       "cloth": {

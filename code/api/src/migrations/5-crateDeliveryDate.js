@@ -10,6 +10,6 @@ module.exports = {
   },
 
   down: (queryInterface, Sequelize) => {
-    queryInterface.removeColumn('crates', 'deliveryDate')
+    return queryInterface.removeColumn('crates', 'deliveryDate')
   }
 };
